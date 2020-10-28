@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.spring.demo.mapper.MessageMapper" >
+    <resultMap id="BaseResultMap" type="com.example.spring.demo.entity.Message" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="text" property="text" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+     id,text
+  </sql>
+    <!--  查询列表 -->
+    <select id="list" resultType="com.example.spring.demo.entity.Message">
+		select id as id ,text as text from message
+	</select>
+
+</mapper>

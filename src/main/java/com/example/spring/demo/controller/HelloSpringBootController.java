@@ -1,0 +1,48 @@
+package com.example.spring.demo.controller;
+
+import com.example.spring.demo.entity.Filter;
+import com.example.spring.demo.entity.Login;
+import com.example.spring.demo.entity.Message;
+import com.example.spring.demo.service.Userservice;
+import org.crazycake.shiro.RedisManager;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@RestController
+@RequestMapping("/test")
+public class HelloSpringBootController {
+
+    @Autowired
+    Userservice userservice;
+
+    @CrossOrigin
+    @RequestMapping("/hello")
+    public List<Login> hello(){
+        return userservice.list();
+}
+
+    @RequestMapping(value = "/json",method = RequestMethod.POST)
+    public  Map<String,String> json(){
+        Map<String, String> map =new HashMap<>();
+        map.put("statues","str");
+       return map;
+    }
+
+    @CrossOrigin
+    @RequestMapping("/selectById")
+    public void selectUser(@RequestBody Map<String, String> map ){
+        System.out.println(map.get("id"));
+    }
+
+    @RequestMapping("/list")
+    public Map<String, Object> list(){
+        return userservice.listM();
+    }
+
+}

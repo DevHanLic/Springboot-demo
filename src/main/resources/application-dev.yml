@@ -1,0 +1,37 @@
+ server:
+   port: 8086
+
+ #thymeleaf 配置
+ spring:
+   thymeleaf:
+     mode: HTML5
+     encoding: UTF-8
+     servlet.content-type: text/html
+     #缓存设置为false, 这样修改之后马上生效，便于调试
+     cache: false
+     #数据库配置
+   datasource:
+     url: jdbc:mysql://127.0.0.1:3306/user?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+     username: root
+     password: root
+     # Mysql8.0请改为com.mysql.cj.jdbc.Driver
+     driver-class-name: com.mysql.cj.jdbc.Driver
+   redis:
+     maxTotal: 20000
+     maxIdle: 100
+     maxWait: 6000
+     host: 192.168.184.128
+     port: 6379
+     #指定mybatis映射文件的地址
+     password: 123456
+ mybatis:
+   mapper-locations: classpath:mapper/*.xml
+   configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+ #分页插件
+ pagehelper:
+   helper-dialect: mysql
+   reasonable: true
+   support-methods-arguments: true
+   params: count=countSql
+   returnPageInfo: check
