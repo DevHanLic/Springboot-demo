@@ -1,19 +1,20 @@
 package com.example.spring.demo.controller;
 
-import com.example.spring.demo.entity.Filter;
 import com.example.spring.demo.entity.Login;
-import com.example.spring.demo.entity.Message;
 import com.example.spring.demo.service.Userservice;
-import org.crazycake.shiro.RedisManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+
+/**
+ * @author han_lic
+ * @date 2020/11/4 16:08
+ */
 @RestController
 @RequestMapping("/test")
 public class HelloSpringBootController {
