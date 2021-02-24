@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 
-
 /**
  * @author han_lic
  * @date 2020/11/4 16:08
@@ -24,32 +23,32 @@ public class HelloSpringBootController {
 
     @CrossOrigin
     @RequestMapping("/hello")
-    public List<Login> hello(){
+    public List<Login> hello() {
         return userservice.list();
-}
+    }
 
-    @RequestMapping(value = "/json",method = RequestMethod.POST)
-    public  Map<String,String> json(){
-        Map<String, String> map =new HashMap<>();
-        map.put("statues","str");
-       return map;
+    @RequestMapping(value = "/json", method = RequestMethod.POST)
+    public Map<String, String> json() {
+        Map<String, String> map = new HashMap<>();
+        map.put("statues", "str");
+        return map;
     }
 
     @CrossOrigin
     @RequestMapping("/selectById")
-    public void selectUser(@RequestBody Map<String, String> map ){
+    public void selectUser(@RequestBody Map<String, String> map) {
         System.out.println(map.get("id"));
     }
 
     @RequestMapping("/list")
-    public Map<String, Object> list(){
+    public Map<String, Object> list() {
         return userservice.listM();
     }
 
     @RequestMapping("/insert")
-    public void  insert(@RequestBody Login login){
+    public void insert(@RequestBody Login login) {
 
-         userservice.insert(login);
+        userservice.insert(login);
     }
 
 }
