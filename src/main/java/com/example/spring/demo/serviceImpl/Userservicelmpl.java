@@ -52,6 +52,12 @@ public class Userservicelmpl implements Userservice {
         Map.put("message",stringList);
         return Map;
     }
+
+    @Override
+    public void insert(Login login) {
+        loginMapper.insert(login);
+    }
+
     @Override
     public String lists() {
        List<Filter> filters= filterMapper.list();

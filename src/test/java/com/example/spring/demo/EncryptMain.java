@@ -20,7 +20,7 @@ public class EncryptMain {
         HttpPost post = new HttpPost("http://localhost:3344/encrypt");
 
         // 设置请求的参数，对20180323进行加密，编码格式为UTF-8
-        HttpEntity entity = new StringEntity("root", Consts.UTF_8);
+        HttpEntity entity = new StringEntity("guest", Consts.UTF_8);
         post.setEntity(entity);
 
         HttpResponse response = client.execute(post);

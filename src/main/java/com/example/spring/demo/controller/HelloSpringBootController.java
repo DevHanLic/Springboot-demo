@@ -46,4 +46,10 @@ public class HelloSpringBootController {
         return userservice.listM();
     }
 
+    @RequestMapping("/insert")
+    public void  insert(@RequestBody Login login){
+
+         userservice.insert(login);
+    }
+
 }

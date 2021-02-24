@@ -18,4 +18,6 @@ public interface Userservice {
     public String text();
 
     public Map<String, Object> listM();
+
+    void insert(Login login);
 }
