@@ -3,13 +3,14 @@ package com.example.spring.demo.service;
 import com.example.spring.demo.entity.Filter;
 import com.example.spring.demo.entity.Login;
 import com.example.spring.demo.entity.Message;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 import java.util.Map;
 
 public interface Userservice {
 
-    public List<Login> list();
+    public PageInfo<Login> list(int currPage, int pageSize);
 
     public String lists();
 

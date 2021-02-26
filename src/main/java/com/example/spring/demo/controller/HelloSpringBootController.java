@@ -2,6 +2,7 @@ package com.example.spring.demo.controller;
 
 import com.example.spring.demo.entity.Login;
 import com.example.spring.demo.service.Userservice;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,8 +24,10 @@ public class HelloSpringBootController {
 
     @CrossOrigin
     @RequestMapping("/hello")
-    public List<Login> hello() {
-        return userservice.list();
+    public PageInfo<Login> hello(@RequestParam(name = "currPage", defaultValue = "1") Integer currPage,
+                                 @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
+        PageInfo<Login> list = userservice.list(currPage,pageSize);
+        return list;
     }
 
     @RequestMapping(value = "/json", method = RequestMethod.POST)

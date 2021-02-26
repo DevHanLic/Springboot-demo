@@ -7,6 +7,8 @@ import com.example.spring.demo.mapper.FilterMapper;
 import com.example.spring.demo.mapper.LoginMapper;
 import com.example.spring.demo.mapper.MessageMapper;
 import com.example.spring.demo.service.Userservice;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,8 +30,13 @@ public class Userservicelmpl implements Userservice {
     MessageMapper messageMapper;
 
     @Override
-    public List<Login> list() {
-        return loginMapper.list();
+    public PageInfo<Login> list(int currPage,int pageSize) {
+        //封装 开始页
+        PageHelper.startPage(currPage,pageSize);
+        List<Login> list = loginMapper.list();
+        PageInfo<Login> pageInfo = new PageInfo<>(list);
+        return pageInfo;
+
     }
     @Override
     public String text() {

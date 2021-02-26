@@ -125,12 +125,12 @@ public class TestController {
         });
 
     }
-    @GetMapping("/pageInfo")
-    public  PageInfo<Login> processingData(int PageNum, int PageSize){
-        PageHelper.startPage(PageNum,PageSize);
-        List<Login> loginList = userservice.list();
-        PageInfo<Login> pageInfo = new PageInfo<>(loginList);
-        System.out.println(pageInfo.getPageSize());
-        return pageInfo;
-    }
+//    @GetMapping("/pageInfo")
+//    public  PageInfo<Login> processingData(int PageNum, int PageSize){
+//        PageHelper.startPage(PageNum,PageSize);
+//        List<Login> loginList = userservice.list();
+//        PageInfo<Login> pageInfo = new PageInfo<>(loginList);
+//        System.out.println(pageInfo.getPageSize());
+//        return pageInfo;
+//    }
 }
