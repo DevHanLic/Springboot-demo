@@ -1,5 +1,8 @@
 package com.example.spring.demo.entity;
 
+/**
+ * @author HLC
+ */
 public class Filter{
 
     private Integer id;
