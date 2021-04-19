@@ -26,7 +26,7 @@ public class HelloSpringBootController {
     public PageInfo<Login> hello(@RequestParam(name = "currPage", defaultValue = "1") Integer currPage,
                                  @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize,
                                  @RequestParam(name = "input") String input) {
-        PageInfo<Login> list = userservice.list(currPage,pageSize,input);
+        PageInfo<Login> list = userservice.list(currPage, pageSize, input);
         return list;
     }
 
@@ -38,7 +38,7 @@ public class HelloSpringBootController {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "/selectById",method = RequestMethod.POST)
+    @RequestMapping(value = "/selectById", method = RequestMethod.POST)
     public void selectUser(@RequestBody Map<String, String> map) {
         System.out.println(map.get("id"));
         userservice.deleteById(map.get("id"));
@@ -50,13 +50,13 @@ public class HelloSpringBootController {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "/insert" , method = RequestMethod.POST)
+    @RequestMapping(value = "/insert", method = RequestMethod.POST)
     public void insert(@RequestBody Login login) {
         userservice.insert(login);
     }
 
     @CrossOrigin
-    @RequestMapping(value = "/update" , method = RequestMethod.POST)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     public void update(@RequestBody Login login) {
         userservice.update(login);
     }
