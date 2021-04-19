@@ -7,15 +7,14 @@ import com.example.spring.demo.mapper.FilterMapper;
 import com.example.spring.demo.mapper.LoginMapper;
 import com.example.spring.demo.mapper.MessageMapper;
 import com.example.spring.demo.service.Userservice;
+import com.example.spring.demo.util.DateTimeUtils;
+import com.example.spring.demo.util.ObjectUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class Userservicelmpl implements Userservice {
@@ -30,10 +29,10 @@ public class Userservicelmpl implements Userservice {
     MessageMapper messageMapper;
 
     @Override
-    public PageInfo<Login> list(int currPage,int pageSize) {
+    public PageInfo<Login> list(int currPage,int pageSize,String input) {
         //封装 开始页
         PageHelper.startPage(currPage,pageSize);
-        List<Login> list = loginMapper.list();
+        List<Login> list = loginMapper.list(input);
         PageInfo<Login> pageInfo = new PageInfo<>(list);
         return pageInfo;
 
@@ -62,7 +61,22 @@ public class Userservicelmpl implements Userservice {
 
     @Override
     public void insert(Login login) {
+        login.setId(UUID.randomUUID().toString().replaceAll("-", "").substring(0,4));
+        login.setDate(DateTimeUtils.getCurrentDateTimeStr());
+        ObjectUtils.strToObject(login);
         loginMapper.insert(login);
+    }
+
+    @Override
+    public void deleteById(String id) {
+        loginMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public void update(Login login) {
+        login.setDate(DateTimeUtils.getCurrentDateTimeStr());
+        ObjectUtils.strToObject(login);
+        loginMapper.updateByPrimaryKeySelective(login);
     }
 
     @Override
@@ -73,14 +87,13 @@ public class Userservicelmpl implements Userservice {
             Filter filter=filters.get(i);
           if (a.contains(filter.getSensitiveWord())) {
               //用一个*替换一个字符
-              String replac="";
+              StringBuilder replac= new StringBuilder();
               for(int j=0;j<filter.getSensitiveWord().length();j++){
-                  replac+="*";
+                  replac.append("*");
               }
               //替换所有匹配
-              a = a.replaceAll(filter.getSensitiveWord(), replac);
+              a = a.replaceAll(filter.getSensitiveWord(), replac.toString());
           }
-
         }
         return a;
     }

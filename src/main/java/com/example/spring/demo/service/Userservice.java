@@ -10,7 +10,7 @@ import java.util.Map;
 
 public interface Userservice {
 
-    public PageInfo<Login> list(int currPage, int pageSize);
+    public PageInfo<Login> list(int currPage, int pageSize,String input);
 
     public String lists();
 
@@ -21,4 +21,8 @@ public interface Userservice {
     public Map<String, Object> listM();
 
     void insert(Login login);
+
+    void deleteById(String id);
+
+    void update(Login login);
 }

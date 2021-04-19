@@ -74,9 +74,9 @@ public class TestController {
     }
 
     private void handclearMessage(TestQO testQO) {
-        Login login = loginMapper.selectByPrimaryKey(Integer.parseInt(testQO.getTitle()));
+        Login login = loginMapper.selectByPrimaryKey(testQO.getTitle());
         Login login1 = new Login();
-        login1.setId(Integer.parseInt(testQO.getTitle()));
+        login1.setId(testQO.getTitle());
         login1.setMoney(BigDecimal.valueOf((int) 300));
 
         System.out.println(login);

@@ -15,13 +15,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LoginMapper {
 	
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(String id);
 
     void insert(Login login);
 
     int insertSelective(Login record);
 
-    Login selectByPrimaryKey(Integer id);
+    Login selectByPrimaryKey(String id);
 
     int updateByPrimaryKeySelective(Login record);
 
@@ -29,7 +29,7 @@ public interface LoginMapper {
     
     public Login login(Map<String, String> map);
 
-    List<Login> list();
+    List<Login> list(String input);
 	
 	public int selectCount();
 	
