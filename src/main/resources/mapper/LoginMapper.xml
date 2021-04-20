@@ -139,7 +139,7 @@
                 money = #{ money ,jdbcType=DECIMAL},
             </if>
             <if test="date != null">
-                #{date,jdbcType=VARCHAR}
+                date = #{date,jdbcType=VARCHAR},
             </if>
         </set>
         where ID = #{id,jdbcType=INTEGER}

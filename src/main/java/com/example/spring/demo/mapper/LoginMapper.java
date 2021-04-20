@@ -23,6 +23,11 @@ public interface LoginMapper {
 
     Login selectByPrimaryKey(String id);
 
+    /**
+     * 修改功能
+     * @param record
+     * @return
+     */
     int updateByPrimaryKeySelective(Login record);
 
     int updateByPrimaryKey(Login login);
