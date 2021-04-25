@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.example.spring.demo.mapper.FilterMapper" >
+<mapper namespace="com.example.spring.demo.dao.FilterMapper" >
     <resultMap id="BaseResultMap" type="com.example.spring.demo.entity.Filter" >
         <id column="id" property="id" jdbcType="INTEGER" />
         <result column="sensitive_word" property="sensitiveWord" jdbcType="VARCHAR" />

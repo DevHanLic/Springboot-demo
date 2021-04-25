@@ -3,12 +3,10 @@ package com.example.spring.demo.Filter;
 
 import com.alibaba.fastjson.JSON;
 import com.example.spring.demo.config.ResponseWrapper;
-import com.example.spring.demo.entity.Message;
-import com.example.spring.demo.mapper.FilterMapper;
-import com.example.spring.demo.mapper.MessageMapper;
-import org.apache.commons.lang.StringUtils;
+import com.example.spring.demo.dao.FilterMapper;
+import com.example.spring.demo.dao.MessageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.example.spring.demo.mapper;
+package com.example.spring.demo.dao;
 
 
 import com.example.spring.demo.entity.Message;

@@ -1,7 +1,6 @@
-package com.example.spring.demo.mapper;
+package com.example.spring.demo.dao;
 
 import com.example.spring.demo.entity.Filter;
-import com.example.spring.demo.entity.Login;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

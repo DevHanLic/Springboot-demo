@@ -1,4 +1,4 @@
-package com.example.spring.demo.mapper;
+package com.example.spring.demo.dao;
 
 import java.util.HashMap;
 import java.util.List;
@@ -7,8 +7,6 @@ import java.util.Map;
 import com.example.spring.demo.entity.Login;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 @Mapper
