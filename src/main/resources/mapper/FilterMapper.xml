@@ -6,11 +6,13 @@
         <result column="sensitive_word" property="sensitiveWord" jdbcType="VARCHAR" />
     </resultMap>
     <sql id="Base_Column_List" >
-     id,sensitiveWord
+     id,sensitive_word
   </sql>
     <!--  查询列表 -->
-    <select id="list" resultType="com.example.spring.demo.entity.Filter">
-		select sensitive_word as sensitiveWord from filter
+    <select id="list" resultMap="BaseResultMap">
+		select
+        <include refid="Base_Column_List" />
+		 from filter
 	</select>
 
 </mapper>

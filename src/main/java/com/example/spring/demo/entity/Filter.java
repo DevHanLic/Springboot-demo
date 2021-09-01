@@ -6,6 +6,7 @@ package com.example.spring.demo.entity;
 public class Filter{
 
     private Integer id;
+
     private String sensitiveWord;
 
     public Integer getId() {
