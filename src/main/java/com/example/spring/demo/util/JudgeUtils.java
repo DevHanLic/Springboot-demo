@@ -46,7 +46,25 @@ public class JudgeUtils {
         }
         return false;
     }
-
+    public static boolean equalsAny(String str1, String... strs) {
+        if(null == strs && null == str1) {
+            return true;
+        }
+        if(null == strs) {
+            return false;
+        }
+        boolean f = false;
+        for(String s : strs) {
+            if(equals(str1, s)) {
+                f = true;
+                break;
+            }
+        }
+        return f;
+    }
+    public static boolean equals(String str1, String str2) {
+        return StringUtils.equals(str1, str2);
+    }
     /**
      * 集合是否不为空
      * @param c
