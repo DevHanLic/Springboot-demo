@@ -44,6 +44,11 @@ public class ObjectUtils {
                     if (JudgeUtils.isNull(f.get(o))) {
                         f.set(o, Long.parseLong("0"));
                     }
+                } else if ("class java.lang.Integer".equals(f.getGenericType().toString())) {
+                    f.setAccessible(true);
+                    if (JudgeUtils.isNull(f.get(o))) {
+                        f.set(o, Integer.parseInt("0"));
+                    }
                 }
             }
         } catch (IllegalAccessException e) {
