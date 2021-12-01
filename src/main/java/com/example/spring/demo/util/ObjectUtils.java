@@ -20,6 +20,7 @@ public class ObjectUtils {
 
     /**
      * 将字段值为空的赋值为 " "
+     *
      * @param o
      * @return
      */
@@ -37,6 +38,11 @@ public class ObjectUtils {
                     f.setAccessible(true);
                     if (JudgeUtils.isNull(f.get(o))) {
                         f.set(o, new BigDecimal(0));
+                    }
+                } else if ("class java.lang.Long".equals(f.getGenericType().toString())) {
+                    f.setAccessible(true);
+                    if (JudgeUtils.isNull(f.get(o))) {
+                        f.set(o, Long.parseLong("0"));
                     }
                 }
             }
