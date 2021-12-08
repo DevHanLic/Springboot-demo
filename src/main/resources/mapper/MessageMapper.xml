@@ -13,4 +13,18 @@
 		select id as id ,text as text from message
 	</select>
 
+    <insert id="insert" parameterType="com.example.spring.demo.entity.Message">
+    insert into message (id, text)
+    values
+    (
+    #{id,jdbcType=INTEGER}, #{text,jdbcType=VARCHAR}
+    )
+  </insert>
+
+    <update id="updateMessage" parameterType="com.example.spring.demo.entity.Message">
+    update message
+    set text = #{text,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
 </mapper>

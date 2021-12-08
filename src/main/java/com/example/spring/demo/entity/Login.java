@@ -3,6 +3,7 @@ package com.example.spring.demo.entity;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 public class Login {
@@ -18,4 +19,6 @@ public class Login {
     private BigDecimal money;
 
     private String date;
+
+    private List<Login> loginList;
 }

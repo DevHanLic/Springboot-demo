@@ -7,9 +7,11 @@ import com.example.spring.demo.entity.Login;
 import com.example.spring.demo.dao.FilterMapper;
 import com.example.spring.demo.dao.LoginMapper;
 import com.example.spring.demo.service.Userservice;
+import com.example.spring.demo.test.service.TestTransactionalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
+
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.*;
@@ -22,16 +24,25 @@ public class TestController {
 
     @Resource(name = "myRedisTemplate")
     private RedisTemplate redisTemplate;
-    @Autowired
+    @Resource
     LoginMapper loginMapper;
 
-    @Autowired
+    @Resource
     Userservice userservice;
 
-    @Autowired
+    @Resource
     FilterMapper filterMapper;
+    @Resource
+    TestTransactionalService testTransactionalService;
 
     ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+
+    @PostMapping("/testTransactional")
+    public void testTransactional(@RequestBody Login login) {
+        testTransactionalService.testTransactional(login.getLoginList());
+    }
+
 
     @CrossOrigin
     @RequestMapping("/getName")
@@ -109,7 +120,7 @@ public class TestController {
                 .build();
         list.add(testQO);
         list.add(testQO1);
-        Login login =new Login();
+        Login login = new Login();
         list.stream().forEach(p -> {
             executorService.execute(
                     new Runnable() {

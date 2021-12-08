@@ -22,6 +22,10 @@ public interface Userservice {
 
     void insert(Login login);
 
+    Integer insertMessage(Message message);
+
+    Integer updateMessage(Message message);
+
     void deleteById(String id);
 
     void update(Login login);

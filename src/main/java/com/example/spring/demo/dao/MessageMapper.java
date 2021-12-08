@@ -16,5 +16,7 @@ public interface MessageMapper {
 
     public List<Message> list();
 
+    Integer insert(Message message);
 
+    Integer updateMessage(Message message);
 }
